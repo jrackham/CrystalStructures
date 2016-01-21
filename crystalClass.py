@@ -1,5 +1,7 @@
 # This is a class containing information about a ternary
 # alloy crystal structure
+
+#!/usr/bin/env python
 import numpy as np
 
 class Crystal:
@@ -20,9 +22,9 @@ class Crystal:
         self.numAtoms = A + B + C
         
         #numpy arrays for lattice basis vectors
-        self.a1 = a1in
-        self.a2 = a2in
-        self.a3 = a3in
+        self.a1 = np.array(a1in)
+        self.a2 = np.array(a2in)
+        self.a3 = np.array(a3in)
         
     # Generates the reciprocal lattice vectors
     def reciprocalVecs():
@@ -39,4 +41,18 @@ class Crystal:
         k3 = int(density * np.linalg.norm(a3))
         return k1, k2, k3
         
+    # determines a starting point lattice parameter from a concentrated
+    # weighted average of nearest neighbor distances
+    def latticeP():
+        percentA = self.conA/self.numAtoms
+        percentB = self.conB/self.numAtoms
+        percentC = self.conC/self.numAtoms
+        
+        latPA = np.linalg.norm(latticeAL*[0.5,0.5,0])
+        latPB = latticeGa[0]
+        latPC = np.linalg.norm(latticeNi*[0.5, 0.5, 0])
+        
+        latP = percentA*latPA + percentB*latPB + percentC*latPC
+        
+        return latP
         
