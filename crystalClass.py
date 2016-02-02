@@ -7,13 +7,13 @@ import numpy as np
 class Crystal:
     # lattice parameters for parent species. Al, Ga, Ni is A,B,C respectively
     # in angstrom. [a1, a2, a3]
-    latticeAl = [4.04, 4.04, 4.04]
-    latticeGa = [4.52, 7.66, 4.52]
-    latticeNi = [3.52, 3.52, 3.52]
+    latticeCo = 3.54
+    latticeRe = 3.913
+    latticeTi = 4.14
     
     # class constructor, takes num of atoms of species A, B, C, the three
     # lattice vectors, and a list containing atomic positions
-    def __init__(self, num, concentrations, a1in, a2in, a3in, positions):
+    def __init__(self, num, a1in, a2in, a3in, concentrations, posA, posB, posC):
         # member data for concentrations
         self.structNum = num
         self.conA = concentrations[0] 
@@ -25,6 +25,11 @@ class Crystal:
         self.a1 = np.array(a1in)
         self.a2 = np.array(a2in)
         self.a3 = np.array(a3in)
+
+        #lists of positions
+        self.pA = posA
+        self.pB = posB
+        self.pC = posC
         
     # Generates the reciprocal lattice vectors
     def reciprocalVecs():
@@ -48,11 +53,7 @@ class Crystal:
         percentB = self.conB/self.numAtoms
         percentC = self.conC/self.numAtoms
         
-        latPA = np.linalg.norm(latticeAL*[0.5,0.5,0])
-        latPB = latticeGa[0]
-        latPC = np.linalg.norm(latticeNi*[0.5, 0.5, 0])
-        
-        latP = percentA*latPA + percentB*latPB + percentC*latPC
+        latP = percentA*latticeCo + percentB*latticeRe + percentC*latticeTi
         
         return latP
         

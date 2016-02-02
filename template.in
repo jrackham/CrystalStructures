@@ -4,12 +4,12 @@
     restart_mode='from_scratch',
     pseudo_dir = '/fslhome/jmrackha/fsl_groups/fslg_byui_materials/pslibrary.1.0.0/pbe/PSEUDOPOTENTIALS',
     outdir='./',
-    prefix='AlGaNi'
+    prefix='CoReTi'
     tprnfor = .true.
     tstress = .true.
  /
  &system
-    ibrav=0, celldm(1)=#lattice, nat=#numAtoms, ntyp= 3, ecutwfc =40.0,
+    ibrav=0, celldm(1)= #lattice, nat= #numAtoms, ntyp= 3, ecutwfc= 40.0,
     occupations='smearing', smearing='mp', degauss=0.2, nspin=2, starting_magnetization(3)=0.7,
     lda_plus_u = .false.
  /
@@ -31,9 +31,9 @@ CELL_PARAMETERS angstrom
 #a3
 
 ATOMIC_SPECIES
-Al  1.0 Al.pbe-n-rrkjus_psl.1.0.0.UPF
-Ga  1.0 Ga.pbe-dn-rrkjus_psl.1.0.0.UPF
-Ni  1.0 Ni.pbe-spn-rrkjus_psl.1.0.0.UPF
+Co  1.0 Al.pbe-spn-rrkjus_psl.1.0.0.UPF
+Re  1.0 Ga.pbe-spn-rrkjus_psl.1.0.0.UPF
+Ti  1.0 Ni.pbe-spn-rrkjus_psl.1.0.0.UPF
 
 ATOMIC_POSITIONS crystal
 #positionsA
