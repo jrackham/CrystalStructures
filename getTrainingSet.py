@@ -4,6 +4,7 @@ a list of structure numbers
 
 """
 import os
+from genInput import makeInput
 def getTrainingSet(filename):
     
     tmp = []
@@ -19,6 +20,7 @@ nums = getTrainingSet("training_set_structures.dat")
 for i in nums:
     path = "structs/struct" + str(i)
     os.mkdir(path)
-    name = path + "/CoReTi_" + str(i) + ".in"
-    open(name, 'w')
+    makeInput(path, i)
+	
+    
     

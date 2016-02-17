@@ -1,11 +1,11 @@
 import crystalClass
 from parseStruct import parseStruct
 
-def genInput(structNum):
+def makeInput(path, structNum):
     num, a1, a2, a3, conc, positionsA, positionsB, positionsC = parseStruct("struct_enum.out", structNum)
     x = crystalClass.Crystal(num, a1, a2, a3, conc, positionsA, positionsB, positionsC)
 
-    inputFilename = "CoReTi_struct" + str(x.structNum) + ".in"
+    inputFilename = path + "CoReTi_struct" + str(x.structNum) + ".in"
 
     inFile = open(inputFilename,'w')
 
