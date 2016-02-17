@@ -73,5 +73,3 @@ def parseStruct(filename, structNum):
         positionsC.append(pos)
 
     return num, a1, a2, a3, conc, positionsA, positionsB, positionsC
-
-# There may be a better way to return this data, look into it
